@@ -1,0 +1,10 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingAdmissionPolicyBinding
+metadata:
+  name: bind-add-metropolis-required-namespace-label
+spec:
+  policyName: metropolis-required-label
+  matchResources:
+    namespaceSelector:
+      matchLabels:
+        city: metropolis

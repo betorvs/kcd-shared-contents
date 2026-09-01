@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: last-edition
+  namespace: daily-planet
+data:
+  CONTENT: "Today in Metropolis..."

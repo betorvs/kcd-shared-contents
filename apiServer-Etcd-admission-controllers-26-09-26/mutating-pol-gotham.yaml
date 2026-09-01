@@ -1,0 +1,25 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingAdmissionPolicy
+metadata:
+  name: gotham-required-label
+spec:
+  failurePolicy: Fail
+  reinvocationPolicy: Never
+  matchConstraints:
+    resourceRules:
+      - apiGroups: ["*"]
+        apiVersions: ["*"]
+        operations: ["CREATE"]
+        resources: ["*"]
+  matchConditions:
+    - name: "missing-required-label"
+      expression: "!has(object.metadata.labels) || !('super.hero/team' in object.metadata.labels)"
+  mutations:
+    - patchType: "ApplyConfiguration"
+      applyConfiguration:
+        expression: |
+          Object{
+            metadata: Object.metadata{
+              labels: {'super.hero/team': 'batman'}
+            }
+          }
