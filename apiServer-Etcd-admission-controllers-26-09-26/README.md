@@ -44,3 +44,14 @@ batcave           utility-belt                                           1      
 daily-planet      kube-root-ca.crt                                       1      10m   super.hero/team=superman
 daily-planet      last-edition                                           1      10m   super.hero/team=superman
 ```
+
+## References
+
+- https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
+- https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/
+- https://kubernetes.io/docs/concepts/security/controlling-access/
+- https://kubernetes.io/docs/tutorials/cluster-management/admission-policies/
+
+### Examples
+
+- https://github.com/betorvs/binding-validating-admission-policies - Helm chart with policies and binding generation
